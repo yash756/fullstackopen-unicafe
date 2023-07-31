@@ -1,9 +1,30 @@
 import React, { useState } from 'react';
 
 const Statistics = (props) => {
+    console.log(props);
+    if (props.count[3] === 0) {
+        return <div>no feedback given</div>;
+    }
     return (
         <div>
-            {props.rating} {props.count}
+            <div>
+                {props.rating[0]} {props.count[0]}
+            </div>
+            <div>
+                {props.rating[1]} {props.count[1]}
+            </div>
+            <div>
+                {props.rating[2]} {props.count[2]}
+            </div>
+            <div>
+                {props.rating[3]} {props.count[3]}
+            </div>
+            <div>
+                {props.rating[4]} {props.count[4]}
+            </div>
+            <div>
+                {props.rating[5]} {props.count[5]}
+            </div>
         </div>
     );
 };
@@ -26,6 +47,7 @@ const App = () => {
     };
 
     const all = good + bad + neutral;
+    const average = good * 1 + neutral * 0 + (bad * -1) / 3;
 
     return (
         <div>
@@ -36,18 +58,23 @@ const App = () => {
             <button onClick={handleBad}>bad</button>
 
             <h2>statistics</h2>
-
-            <Statistics rating="good" count={good} />
-            <Statistics rating="neutral" count={neutral} />
-            <Statistics rating="bad" count={bad} />
-            <Statistics rating="all" count={all} />
             <Statistics
-                rating="average"
-                count={good * 1 + neutral * 0 + (bad * -1) / 3}
-            />
-            <Statistics
-                rating="positive"
-                count={`${(good * 100) / all}` + ' %'}
+                rating={[
+                    'good',
+                    'neutral',
+                    'bad',
+                    'all',
+                    'average',
+                    'positive',
+                ]}
+                count={[
+                    good,
+                    neutral,
+                    bad,
+                    all,
+                    average,
+                    `${(good * 100) / all}` + ' %',
+                ]}
             />
         </div>
     );
