@@ -7,21 +7,26 @@ const Statistics = (props) => {
     }
     return (
         <div>
-            <StatisticLine text={props.rating[0]} value={props.count[0]} />
-            <StatisticLine text={props.rating[1]} value={props.count[1]} />
-            <StatisticLine text={props.rating[2]} value={props.count[2]} />
-            <StatisticLine text={props.rating[3]} value={props.count[3]} />
-            <StatisticLine text={props.rating[4]} value={props.count[4]} />
-            <StatisticLine text={props.rating[5]} value={props.count[5]} />
+            <table>
+                <StatisticLine text={props.rating[0]} value={props.count[0]} />
+                <StatisticLine text={props.rating[1]} value={props.count[1]} />
+                <StatisticLine text={props.rating[2]} value={props.count[2]} />
+                <StatisticLine text={props.rating[3]} value={props.count[3]} />
+                <StatisticLine text={props.rating[4]} value={props.count[4]} />
+                <StatisticLine text={props.rating[5]} value={props.count[5]} />
+            </table>
         </div>
     );
 };
 
 const StatisticLine = (props) => {
     return (
-        <div>
-            {props.text} {props.value}
-        </div>
+        <tbody>
+            <tr>
+                <td> {props.text}</td>
+                <td> {props.value} </td>
+            </tr>
+        </tbody>
     );
 };
 
