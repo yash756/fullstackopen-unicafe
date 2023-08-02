@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Statistics = (props) => {
     console.log(props);
     if (props.count[3] === 0) {
-        return <div>no feedback given</div>;
+        return <div>no feedback given yet</div>;
     }
     return (
         <div>
